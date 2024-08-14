@@ -1,0 +1,77 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+    <title>Profile</title>
+  </head>
+  <body>
+    
+    <div class="containerpers">
+        <div class="cardpers ">
+          <form id="uploadform" action="/fileupload" hidden method="post" enctype="multipart/form-data">
+            <input type="file" name="image">
+          </form>
+          <div class="icon-block  ">
+            <span id="uploadicon" class=" pensil-block  ">
+              <i class="icon ri-pencil-fill dark"></i>
+            </span>
+            <div class="profile-picture">
+              <img src="https://plus.unsplash.com/premium_photo-1661914978519-52a11fe159a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGxvZ298ZW58MHx8MHx8fDA%3D" alt="Profile Picture">
+            </div>
+        </div>
+          
+          <h2 class="name"><%= user.name%></h2>
+          <h3 class="username">@<%= user.username%></h3>
+          <p class="tagline">User on pinterset</p>
+          <p class="description">Hello, I am using Pinterest.</p>
+          <div class="flex">
+            <a  href="/logout" class="button ">LogOut</a>
+          <a href="/upload" class="button ">Create Post</a>
+          </div>
+          
+        </div>
+    </div>
+    <div class="container">
+      <div class="cards flex ">
+        <% user.post.forEach(function(post){ %>
+          <div class="card " style="width: 17rem;">
+            <img src="/images/uploads/<%= post.image %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title "><%= post.imageText %></h5>
+            </div>
+          </div>
+        <% })%>
+      </div>
+      
+      </div>
+
+    </div>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+      document.querySelector("#uploadicon").addEventListener("click", function(){
+        document.querySelector("#uploadform input").click();
+      })
+
+      document.querySelector("#uploadform input").addEventListener("change", function(){
+        document.querySelector("#upoadform").submit();
+      })
+    </script>
+
+   
+  </body>
+</html>

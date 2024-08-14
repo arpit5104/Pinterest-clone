@@ -1,0 +1,18 @@
+body{
+ background-color: rgb(97, 97, 97);
+}
+.container{
+    background-color: azure;
+    width: 30%;
+    position: absolute;
+    top: 50% ;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 5px solid white;
+    border-radius: 10px;
+}
+.head{
+    display: flex;
+    justify-content: center;
+}
+
